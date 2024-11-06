@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - VIT Chennai Carpool</title>
+</head>
+<body style="color:black;background-color: rgba(255, 192, 203, 0.098);">
+    <header>
+        <h1>Register</h1>
+        <nav>
+            <a href="index.html"><button>Home</button></a> | 
+            <a href="login.html"><button>Login</button></a>
+        </nav>
+    </header>
+
+    <main>
+        <form id="registerForm">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">VIT Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+
+            <label for="confirm-password">Confirm Password:</label><br>
+            <input type="password" id="confirm-password" name="confirm-password" required><br><br>
+
+            <input type="submit" value="Register">
+        </form>
+    </main>
+
+    <script>
+        // Function to send registration data to the server
+        const registerUser = async (userData) => {
+            try {
+                const response = await fetch('http://localhost:3000/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(userData),
+                });
+                const result = await response.json();
+                console.log(result); // Log the server's response
+
+                // Display message or handle response
+                if (response.ok) {
+                    alert("Registration successful!");
+                } else {
+                    alert("Registration failed: " + result.error);
+                }
+            } catch (error) {
+                console.error("Error registering user:", error);
+                alert("An error occurred during registration.");
+            }
+        };
+
+        // Form submit event listener
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting the default way
+
+            // Collect form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            // Prepare user data
+            const userData = { name, email, password };
+
+            // Call registerUser function
+            registerUser(userData);
+        });
+    </script>
+</body>
+</html>
