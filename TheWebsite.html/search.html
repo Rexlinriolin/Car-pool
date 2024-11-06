@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search for a Ride - VIT Chennai Carpool</title>
+</head>
+<body style="color:black;background-color: rgba(255, 192, 203, 0.098);">
+    <header>
+        <h1>Search for a Ride</h1>
+        <nav>
+            <a href="index.html"><button>Home</button></a> | 
+            <a href="offer.html"><button>Offer a Ride</button></a>
+        </nav>
+    </header>
+
+    <main>
+        <form id="searchForm">
+            <label for="from">From:</label><br>
+            <input type="text" id="from" name="from" required><br><br>
+
+            <label for="to">To:</label><br>
+            <input type="text" id="to" name="to" required><br><br>
+
+            <label for="date">Date:</label><br>
+            <input type="date" id="date" name="date" required><br><br>
+
+            <button type="button" onclick="searchRides()">Search</button>
+        </form>
+
+        <!-- Section to display search results -->
+        <section id="searchResults"></section>
+    </main>
+    
+</body>
+</html>
