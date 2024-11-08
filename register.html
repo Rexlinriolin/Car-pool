@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - VIT Chennai Carpool</title>
+    <link rel="stylesheet" href="registerstyles.css">
+</head>
+<body style="color:black;background-color: rgba(255, 192, 203, 0.098);">
+    <header>
+        <h1>Register</h1>
+        <nav>
+            <a href="index.html"><button>Home</button></a> | 
+            <a href="login.html"><button>Login</button></a>
+        </nav>
+    </header>
+
+    <main>
+        <form id="registerForm">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">VIT Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+
+            <label for="confirm-password">Confirm Password:</label><br>
+            <input type="password" id="confirm-password" name="confirm-password" required><br><br>
+
+            <input type="submit" value="Register">
+        </form>
+        <form id="registerForm" action="/register" method="post">
+            <!-- form fields -->
+        </form>
+        
+
+    </main>
+
+    <script src="registerscript.js"></script>
+</body>
+</html>
